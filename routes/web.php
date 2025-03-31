@@ -110,9 +110,9 @@ Route::get('/Internaciones', function () {
 Route::get('/Cajas', function () {
     return view('modulos.cajas');
 })->name('Cajas');
-Route::get('/cajas', [CajasController::class, 'index'])->name('cajas.index');
-Route::get('/cajas/factura/create', [CajasController::class, 'createFactura'])->name('facturas.create');
-Route::post('/cajas/factura/store', [CajasController::class, 'storeFactura'])->name('facturas.store');
+//Route::get('/cajas', [CajasController::class, 'index'])->name('cajas.index');
+//Route::get('/cajas/factura/create', [CajasController::class, 'createFactura'])->name('facturas.create');
+//Route::post('/cajas/factura/store', [CajasController::class, 'storeFactura'])->name('facturas.store');
 
 // Rutas para informes
 Route::get('/Informes', function () {
@@ -138,4 +138,4 @@ Route::resource('roles', RolController::class);
 Route::resource('departamentos', DepartamentoController::class);
 
 // Rutas para facturas
-Route::resource('facturas', FacturasController::class);
+//Route::resource('facturas', FacturasController::class);
