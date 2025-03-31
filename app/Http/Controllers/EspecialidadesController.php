@@ -10,9 +10,16 @@ class EspecialidadesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $especialidades = Especialidad::all();
+        $query = Especialidad::query();
+
+        if ($request->has('search') && $request->search != '') {
+            $query->where('nombre', 'like', '%' . $request->search . '%');
+        }
+
+        $especialidades= $query->paginate(10);
+
         return view('modulos.ajustes', compact('especialidades'));
     }
 

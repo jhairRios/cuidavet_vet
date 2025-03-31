@@ -21,6 +21,8 @@ use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\CitasController;
 use App\Http\Controllers\EspecialidadesController;
+use App\Http\Controllers\CajasController;
+use App\Http\Controllers\FacturasController;
 
 // Ruta principal
 Route::get('/', function () {
@@ -59,6 +61,11 @@ Route::get('/clientes/buscar-por-dni', [ClientesController::class, 'buscarPorDni
 Route::resource('mascotas', MascotasController::class);
 Route::get('/Mascotas', [MascotasController::class, 'index'])->name('mascotas.index');
 Route::get('/Mascotas/buscar-cliente', [MascotasController::class, 'buscarCliente'])->name('mascotas.buscarCliente');
+
+// Rutas para veterinarios
+Route::resource('veterinarios', VeterinarioController::class);
+Route::get('/Veterinarios', [VeterinarioController::class, 'index'])->name('Veterinarios');
+Route::get('/veterinarios', [VeterinarioController::class, 'index'])->name('veterinarios.index');
 
 // Rutas para categorías
 Route::resource('categorias', CategoriasController::class);
@@ -103,11 +110,9 @@ Route::get('/Internaciones', function () {
 Route::get('/Cajas', function () {
     return view('modulos.cajas');
 })->name('Cajas');
-
-// Rutas para veterinarios
-Route::get('/Veterinarios', function () {
-    return view('modulos.veterinarios');
-})->name('Veterinarios');
+Route::get('/cajas', [CajasController::class, 'index'])->name('cajas.index');
+Route::get('/cajas/factura/create', [CajasController::class, 'createFactura'])->name('facturas.create');
+Route::post('/cajas/factura/store', [CajasController::class, 'storeFactura'])->name('facturas.store');
 
 // Rutas para informes
 Route::get('/Informes', function () {
@@ -131,3 +136,6 @@ Route::resource('roles', RolController::class);
 
 // Rutas para departamentos
 Route::resource('departamentos', DepartamentoController::class);
+
+// Rutas para facturas
+Route::resource('facturas', FacturasController::class);
