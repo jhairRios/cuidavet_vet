@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Compra;
 use App\Models\Proveedor;
+use Illuminate\Support\Facades\Auth; // Agregar esta línea para importar Auth
 
 class ComprasController extends Controller
 {
@@ -30,7 +31,7 @@ class ComprasController extends Controller
 
         // Agregar el ID del empleado autenticado
         Compra::create(array_merge($request->all(), [
-            'id_empleado' => auth()->id(), // Asegúrate de que auth()->id() devuelva el ID del empleado
+            'id_empleado' => Auth::id(), // Cambiado auth()->user()->id por Auth::id()
         ]));
 
         return redirect()->route('compras.index')->with('success', 'Compra registrada correctamente.');
@@ -56,7 +57,7 @@ class ComprasController extends Controller
 
         // Actualizar la compra con el ID del empleado autenticado
         $compra->update(array_merge($request->all(), [
-            'id_empleado' => auth()->id(), 
+            'id_empleado' => Auth::id(), // Cambiado auth()->user()->id por Auth::id()
         ]));
 
         return redirect()->route('compras.index')->with('success', 'Compra actualizada correctamente.');
