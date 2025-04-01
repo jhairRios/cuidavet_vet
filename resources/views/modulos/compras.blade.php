@@ -11,6 +11,20 @@
         <div class="box">
             <div class="box-body table-responsive">
 
+            <!-- Formulario para filtrar por fechas -->
+            <form method="GET" action="{{ route('compras.index') }}" class="form-inline mb-3">
+                <div class="form-group">
+                    <label for="fecha_inicio">Desde:</label>
+                    <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" value="{{ request('fecha_inicio') }}">
+                </div>
+                <div class="form-group mx-sm-3">
+                    <label for="fecha_fin">Hasta:</label>
+                    <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" value="{{ request('fecha_fin') }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </form>
+            <!-- Fin del formulario -->
+
             @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}

@@ -10,8 +10,8 @@ class CitasController extends Controller
 {
     public function index()
     {
-        $citas = Cita::with('cliente', 'veterinario')->get();
-        return view('modulos.citas.index', compact('citas'));
+        $citas = Cita::all();
+        return view('modulos.citas', compact('citas'));
     }
 
     public function create()
@@ -32,7 +32,7 @@ class CitasController extends Controller
         ]);
 
         Cita::create($request->all());
-        return redirect()->route('citas.index')->with('success', 'Cita creada correctamente.');
+        return redirect()->route('citas')->with('success', 'Cita creada correctamente.');
     }
 
     public function edit($id)
@@ -55,13 +55,13 @@ class CitasController extends Controller
 
         $cita = Cita::findOrFail($id);
         $cita->update($request->all());
-        return redirect()->route('citas.index')->with('success', 'Cita actualizada correctamente.');
+        return redirect()->route('citas')->with('success', 'Cita actualizada correctamente.');
     }
 
     public function destroy($id)
     {
         $cita = Cita::findOrFail($id);
         $cita->delete();
-        return redirect()->route('citas.index')->with('success', 'Cita eliminada correctamente.');
+        return redirect()->route('citas')->with('success', 'Cita eliminada correctamente.');
     }
 }
