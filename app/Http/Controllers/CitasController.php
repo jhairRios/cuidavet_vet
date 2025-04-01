@@ -18,7 +18,7 @@ class CitasController extends Controller
     {
         $clientes = Cliente::all();
         $veterinarios = Veterinario::all();
-        return view('modulos.citas.create', compact('clientes', 'veterinarios'));
+        return view('modulos.citas_create', compact('clientes', 'veterinarios'));
     }
 
     public function store(Request $request)
