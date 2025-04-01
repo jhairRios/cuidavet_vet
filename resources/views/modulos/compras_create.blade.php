@@ -7,7 +7,7 @@
     <section class="content">
         <div class="box">
             <div class="box-body">
-                <form action="{{ route('compras.store') }}" method="POST">
+                <form action="{{ route('compras.store') }}" method="POST" onsubmit="return validarFormulario()">
                     @csrf
                     <div class="form-group">
                         <label for="proveedor_id">Proveedor</label>
@@ -45,7 +45,7 @@
                     <!-- Total -->
                     <div class="form-group">
                         <label for="total">Total</label>
-                        <input type="text" id="total" name="total" class="form-control" readonly>
+                        <input type="text" id="total" name="total" class="form-control" readonly required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -152,6 +152,16 @@
                     total += subtotal;
                 });
                 totalInput.value = total.toFixed(2);
+            }
+
+            // Validar formulario antes de enviar
+            function validarFormulario() {
+                const total = parseFloat(document.querySelector('#total').value) || 0;
+                if (total <= 0) {
+                    alert('El total debe ser mayor a 0.');
+                    return false;
+                }
+                return true;
             }
         });
     </script>

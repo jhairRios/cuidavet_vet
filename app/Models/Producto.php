@@ -20,4 +20,10 @@ class Producto extends Model
         'precio_venta',
         'estado',
     ];
+
+    public function compras()
+    {
+        return $this->belongsToMany(Compra::class, 'compra_producto')
+                    ->withPivot('cantidad', 'precio');
+    }
 }
