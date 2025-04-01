@@ -10,7 +10,7 @@ class CitasController extends Controller
 {
     public function index()
     {
-        $citas = Cita::all();
+        $citas = Cita::with('cliente', 'veterinario')->get();
         return view('modulos.citas', compact('citas'));
     }
 
