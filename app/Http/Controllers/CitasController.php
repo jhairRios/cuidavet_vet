@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Cita;
 use App\Models\Cliente;
 use App\Models\Veterinario;
+use App\Models\Empleado;
 
 class CitasController extends Controller
 {
@@ -17,7 +18,7 @@ class CitasController extends Controller
     public function create()
     {
         $clientes = Cliente::all();
-        $veterinarios = Veterinario::all();
+        $veterinarios = Empleado::where('id_rol', 1)->get();
         return view('modulos.citas_create', compact('clientes', 'veterinarios'));
     }
 
