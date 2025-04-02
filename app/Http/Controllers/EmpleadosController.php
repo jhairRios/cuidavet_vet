@@ -67,7 +67,7 @@ class EmpleadosController extends Controller
             'nombre' => 'required',
             'apellido' => 'required',
             'telefono' => 'required',
-            'correo' => 'required|email',
+            'correo' => 'required|email|unique:empleados,correo',
             'contrasenia' => 'required',
             'id_rol' => 'required',
             'f_nacimiento' => 'required|date',
@@ -79,7 +79,7 @@ class EmpleadosController extends Controller
             'salario' => 'required|numeric',
             'id_moneda' => 'required',
             'estado' => 'required',
-            'especialidad' => 'nullable|string|max:255', // Validación para especialidad
+            'especialidad' => 'nullable|string|max:255',
         ]);
 
         $data = $request->all();
@@ -88,7 +88,7 @@ class EmpleadosController extends Controller
         $data['contrasenia'] = Hash::make($data['contrasenia']);
 
         // Si el rol no es "doctor", eliminar el campo de especialidad
-        if ($data['id_rol'] != 1) { // Suponiendo que el rol "doctor" tiene el ID 2
+        if ($data['id_rol'] != 1) { // Suponiendo que el rol "doctor" tiene el ID 1
             $data['especialidad'] = null;
         }
 

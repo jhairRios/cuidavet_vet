@@ -28,7 +28,6 @@ class Empleado extends Authenticatable
         'id_rol',
         'f_nacimiento',
         'genero',
-        'foto',
         'f_contratacion',
         'id_departamento',
         'dias_laborales',
