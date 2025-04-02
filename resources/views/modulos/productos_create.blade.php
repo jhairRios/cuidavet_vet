@@ -40,10 +40,6 @@
                         <input type="number" name="cantidad" id="cantidad" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="imagen">Imagen</label>
-                        <input type="file" name="imagen" id="imagen" class="form-control">
-                    </div>
-                    <div class="form-group">
                         <label for="descripcion">Descripción</label>
                         <textarea name="descripcion" id="descripcion" class="form-control"></textarea>
                     </div>

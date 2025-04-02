@@ -70,10 +70,6 @@
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="foto">Foto</label>
-                        <input type="file" name="foto" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
                         <label for="f_contratacion">Fecha de Contratación</label>
                         <input type="date" name="f_contratacion" class="form-control" required>
                     </div>
