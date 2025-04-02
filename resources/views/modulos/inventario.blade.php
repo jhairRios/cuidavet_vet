@@ -13,7 +13,6 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th style="color: white; background-color: #0d98ba;">Imagen</th>
                                 <th style="color: white; background-color: #0d98ba;">Nombre</th>
                                 <th style="color: white; background-color: #0d98ba;">Categoría</th>
                                 <th style="color: white; background-color: #0d98ba;">Código</th>
@@ -26,13 +25,6 @@
                         <tbody>
                             @foreach ($productos as $producto)
                                 <tr>
-                                    <td>
-                                        @if ($producto->imagen)
-                                            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen del producto" width="100">
-                                        @else
-                                            Sin imagen
-                                        @endif
-                                    </td>
                                     <td>{{ $producto->nombre }}</td>
                                     <td>
                                         @php
