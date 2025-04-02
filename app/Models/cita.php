@@ -14,7 +14,6 @@ class Cita extends Model
         'fecha',
         'hora',
         'estado',
-        'observaciones',
     ];
 
     public function cliente()
@@ -24,6 +23,6 @@ class Cita extends Model
 
     public function veterinario()
     {
-        return $this->belongsTo(Veterinario::class);
+        return $this->belongsTo(Empleado::class, 'veterinario_id'); // Cambiado de Veterinario a Empleado
     }
 }

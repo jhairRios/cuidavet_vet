@@ -26,7 +26,7 @@ class CitasController extends Controller
     {
         $request->validate([
             'cliente_id' => 'required|exists:clientes,id',
-            'veterinario_id' => 'required|exists:veterinarios,id',
+            'veterinario_id' => 'required|exists:empleados,id', // Cambiado de 'veterinarios' a 'empleados'
             'fecha' => 'required|date',
             'hora' => 'required',
             'estado' => 'required|in:Pendiente,Confirmada,Cancelada',
