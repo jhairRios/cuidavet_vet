@@ -33,8 +33,3 @@
     </section>
 </div>
 @endsection
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('public/css/inicio.css') }}">
-@endpush
-
