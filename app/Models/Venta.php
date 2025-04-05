@@ -16,6 +16,14 @@ class Venta extends Model
         'estado',
     ];
 
+    // Relación con productos
+    public function productos()
+    {
+        return $this->belongsToMany(Producto::class, 'producto_venta')
+                    ->withPivot('cantidad', 'precio')
+                    ->withTimestamps();
+    }
+
     public function cliente()
     {
         return $this->belongsTo(Cliente::class);

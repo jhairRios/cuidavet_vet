@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Veterinario;
 use Illuminate\Http\Request;
 
 class VeterinarioController extends Controller

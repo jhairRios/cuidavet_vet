@@ -28,11 +28,11 @@
                         <table class="table table-bordered" id="productos-table">
                             <thead>
                                 <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio</th>
-                                    <th>Subtotal</th>
-                                    <th>Acciones</th>
+                                    <th  style="color: white; background-color: #0d98ba;">Producto</th>
+                                    <th  style="color: white; background-color: #0d98ba;">Cantidad</th>
+                                    <th  style="color: white; background-color: #0d98ba;">Precio</th>
+                                    <th  style="color: white; background-color: #0d98ba;">Subtotal</th>
+                                    <th  style="color: white; background-color: #0d98ba;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>

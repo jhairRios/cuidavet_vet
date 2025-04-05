@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="inicio-container" style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
     <section class="content" style="padding: 20px;">
-        <div class="box" style="background-color:#3c8dbc; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+        <div class="box" style="background-color:#5493b8; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
             <div class="box-body">
             <!-- Breve presentación del sistema -->
             <div class="presentation" style="text-align: center; margin-bottom: 30px; padding: 40px; border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">

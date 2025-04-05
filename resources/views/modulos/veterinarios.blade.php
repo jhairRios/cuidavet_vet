@@ -21,7 +21,7 @@
                             <th style="color: white; background-color: #0d98ba;">Apellido</th>
                             <th style="color: white; background-color: #0d98ba;">Teléfono</th>
                             <th style="color: white; background-color: #0d98ba;">Correo</th>
-                            <th style="color: white; background-color: #0d98ba;">Especialidad</th>
+                            <!--<th style="color: white; background-color: #0d98ba;">Especialidad</th>-->
                             <th style="color: white; background-color: #0d98ba;">Estado</th>
                         </tr>
                     </thead>
@@ -32,7 +32,7 @@
                             <td>{{ $veterinario->apellido }}</td>
                             <td>{{ $veterinario->telefono }}</td>
                             <td>{{ $veterinario->correo }}</td>
-                            <td>{{ $veterinario->especialidad ?? 'N/A' }}</td> <!-- Mostrar especialidad o 'N/A' si no existe -->
+                            <!--<td>{{ $veterinario->especialidad->nombre ?? 'N/A' }}</td>  Mostrar el nombre de la especialidad -->
                             <td>{{ $veterinario->estado }}</td>
                         </tr>
                         @empty
@@ -42,6 +42,7 @@
                         @endforelse
                     </tbody>
                 </table>
+                
             </div>
         </div>
     </section>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Especialidad;
+use App\Models\Veterinario;
 
 class EspecialidadesController extends Controller
 {
@@ -20,7 +21,9 @@ class EspecialidadesController extends Controller
 
         $especialidades= $query->paginate(10);
 
-        return view('modulos.ajustes', compact('especialidades'));
+        $veterinarios = Veterinario::with('especialidad')->get();
+
+        return view('modulos.ajustes', compact('especialidades', 'veterinarios'));
     }
 
     /**

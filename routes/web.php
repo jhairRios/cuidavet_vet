@@ -96,6 +96,7 @@ Route::get('/Compras', [ComprasController::class, 'index'])->name('compras');
 // Rutas para ventas
 Route::resource('ventas', VentasController::class);
 Route::get('/Ventas', [VentasController::class, 'index'])->name('ventas');
+Route::get('ventas/{id}/imprimir', [App\Http\Controllers\VentasController::class, 'imprimir'])->name('ventas.imprimir');
 
 // Rutas para citas
 Route::resource('citas', CitasController::class);

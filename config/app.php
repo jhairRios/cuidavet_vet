@@ -126,4 +126,15 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'providers' => [
+        // ...existing code...
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+    ],
+
+    'aliases' => [
+        // ...existing code...
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+    ],
+
 ];

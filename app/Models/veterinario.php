@@ -14,7 +14,12 @@ class Veterinario extends Model
         'apellido',
         'telefono',
         'correo',
-        'especialidad',
+        'especialidad_id', // Cambiar 'especialidad' por 'especialidad_id'
         'estado',
     ];
+
+    public function especialidad()
+    {
+        return $this->belongsTo(Especialidad::class, 'especialidad_id');
+    }
 }

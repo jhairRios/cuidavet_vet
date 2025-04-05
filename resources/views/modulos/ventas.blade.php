@@ -49,12 +49,9 @@
                                     <td>{{ $venta->empleado->nombre ?? 'N/A' }}</td>
                                     <td>
                                         <a href="{{ route('ventas.show', $venta->id) }}" class="btn btn-info">Mostrar</a>
-                                        <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-warning">Editar</a>
-                                        <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                                        </form>
+                                        <a href="{{ route('ventas.imprimir', $venta->id) }}" class="btn btn-success" target="_blank">
+                                            <i class="fa fa-print"></i> Imprimir PDF
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

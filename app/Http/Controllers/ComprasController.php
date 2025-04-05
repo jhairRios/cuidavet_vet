@@ -69,14 +69,33 @@ class ComprasController extends Controller
             'fecha' => 'required|date',
             'total' => 'required|numeric|min:0',
             'estado' => 'required|in:Pendiente,Pagada,Cancelada',
+            'productos' => 'required|array',
+            'productos.*.id' => 'required|exists:productos,id',
+            'productos.*.cantidad' => 'required|numeric|min:1',
+            'productos.*.precio' => 'required|numeric|min:0.01',
         ]);
 
         $compra = Compra::findOrFail($id);
 
-        // Actualizar la compra con el ID del empleado autenticado
-        $compra->update(array_merge($request->all(), [
-            'id_empleado' => Auth::id(), // Cambiado auth()->user()->id por Auth::id()
-        ]));
+        // Actualizar datos principales de la compra
+        $compra->update([
+            'proveedor_id' => $request->proveedor_id,
+            'fecha' => $request->fecha,
+            'total' => $request->total,
+            'estado' => $request->estado, // El estado se actualiza aquí
+            'id_empleado' => Auth::id(),
+        ]);
+
+        // Actualizar productos de la compra
+        $productos = $request->input('productos', []);
+        $compra->productos()->sync([]); // Eliminar productos existentes
+
+        foreach ($productos as $producto) {
+            $compra->productos()->attach($producto['id'], [
+                'cantidad' => $producto['cantidad'],
+                'precio' => $producto['precio'],
+            ]);
+        }
 
         return redirect()->route('compras.index')->with('success', 'Compra actualizada correctamente.');
     }
